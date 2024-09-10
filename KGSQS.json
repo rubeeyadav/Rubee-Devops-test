@@ -1,0 +1,33 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Create SQS queue",
+    "Resources": {
+      "MySQSQueue": {
+        "Type": "AWS::SQS::Queue",
+        "Properties": {
+          "QueueName": "MyQueue",     // Optional: You can specify a custom name
+          "VisibilityTimeout": 30,    // Optional: Timeout in seconds for which a message is invisible after being retrieved
+          "MessageRetentionPeriod": 345600,  // Optional: Retention period in seconds (default is 4 days, max is 14 days)
+          "ReceiveMessageWaitTimeSeconds": 0 // Optional: Long polling wait time
+        }
+      }
+    },
+    "Outputs": {
+      "QueueURL": {
+        "Description": "URL of the created SQS queue",
+        "Value": {
+          "Ref": "MySQSQueue"
+        }
+      },
+      "QueueARN": {
+        "Description": "ARN of the created SQS queue",
+        "Value": {
+          "Fn::GetAtt": [
+            "MySQSQueue",
+            "Arn"
+          ]
+        }
+      }
+    }
+  }
+  
