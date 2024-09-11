@@ -106,9 +106,9 @@
                 "",
                 [
                   "#!/bin/bash\n",
-                  "yum -y update\n"               // Run yum update on instance boot
-                  "yum -y install aws-cli\n",        // Install AWS CLI
-                  "aws sqs get-queue-url --queue-name MyQueue >> /home/ec2-user/queue-url.txt\n" // Get SQS URL
+                  "yum -y update\n"               
+                  "yum -y install aws-cli\n",        
+                  "aws sqs get-queue-url --queue-name MyQueue >> /home/ec2-user/queue-url.txt\n"
                 ]
               ]
             }
